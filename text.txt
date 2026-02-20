@@ -1,0 +1,1050 @@
+C:\Users\AbdulSuleman\Desktop\Data Engineering Upskill Projects\real-time-data-ingestion-using-spark\src>spark-submit --jars "mysql-connector-j-8.0.33.jar" spark_streaming_to_postgres.py
+WARNING: Using incubator modules: jdk.incubator.vector
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+26/02/19 17:46:17 INFO SparkContext: Running Spark version 4.1.1
+26/02/19 17:46:17 INFO SparkContext: OS info Windows 11, 10.0, amd64
+26/02/19 17:46:17 INFO SparkContext: Java version 22.0.1+8-16
+26/02/19 17:46:17 INFO ResourceUtils: ==============================================================
+26/02/19 17:46:17 INFO ResourceUtils: No custom resources configured for spark.driver.
+26/02/19 17:46:17 INFO ResourceUtils: ==============================================================
+26/02/19 17:46:17 INFO SparkContext: Submitted application: EcommerceStreaming
+26/02/19 17:46:17 INFO SecurityManager: Changing view acls to: AbdulSuleman
+26/02/19 17:46:17 INFO SecurityManager: Changing modify acls to: AbdulSuleman
+26/02/19 17:46:17 INFO SecurityManager: Changing view acls groups to: AbdulSuleman
+26/02/19 17:46:17 INFO SecurityManager: Changing modify acls groups to: AbdulSuleman
+26/02/19 17:46:17 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: AbdulSuleman groups with view permissions: EMPTY; users with modify permissions: AbdulSuleman; groups with modify permissions: EMPTY; RPC SSL disabled
+26/02/19 17:46:17 INFO Utils: Successfully started service 'sparkDriver' on port 64657.
+26/02/19 17:46:17 INFO SparkEnv: Registering MapOutputTracker
+26/02/19 17:46:17 INFO SparkEnv: Registering BlockManagerMaster
+26/02/19 17:46:18 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+26/02/19 17:46:18 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+26/02/19 17:46:18 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+26/02/19 17:46:18 INFO DiskBlockManager: Created local directory at C:\Users\AbdulSuleman\AppData\Local\Temp\blockmgr-268bee3e-e084-4af6-9874-84ac5f2e096f
+26/02/19 17:46:18 INFO SparkEnv: Registering OutputCommitCoordinator
+26/02/19 17:46:18 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+26/02/19 17:46:18 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+26/02/19 17:46:18 INFO SparkContext: Added JAR file:///C:/Users/AbdulSuleman/Desktop/Data%20Engineering%20Upskill%20Projects/real-time-data-ingestion-using-spark/src/mysql-connector-j-8.0.33.jar at spark://DESKTOP-QFS7I0I:64657/jars/mysql-connector-j-8.0.33.jar with timestamp 1771523177189
+26/02/19 17:46:18 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+26/02/19 17:46:18 INFO ResourceProfile: Limiting resource is cpu
+26/02/19 17:46:18 INFO ResourceProfileManager: Added ResourceProfile id: 0
+26/02/19 17:46:18 INFO SecurityManager: Changing view acls to: AbdulSuleman
+26/02/19 17:46:18 INFO SecurityManager: Changing modify acls to: AbdulSuleman
+26/02/19 17:46:18 INFO SecurityManager: Changing view acls groups to: AbdulSuleman
+26/02/19 17:46:18 INFO SecurityManager: Changing modify acls groups to: AbdulSuleman
+26/02/19 17:46:18 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: AbdulSuleman groups with view permissions: EMPTY; users with modify permissions: AbdulSuleman; groups with modify permissions: EMPTY; RPC SSL disabled
+26/02/19 17:46:18 INFO Executor: Starting executor ID driver on host DESKTOP-QFS7I0I
+26/02/19 17:46:18 INFO Executor: OS info Windows 11, 10.0, amd64
+26/02/19 17:46:18 INFO Executor: Java version 22.0.1+8-16
+26/02/19 17:46:18 INFO Executor: Starting executor with user classpath (userClassPathFirst = false): ''
+26/02/19 17:46:18 INFO Executor: Created or updated repl class loader org.apache.spark.util.MutableURLClassLoader@fa76ada for default.
+26/02/19 17:46:18 INFO Executor: Fetching spark://DESKTOP-QFS7I0I:64657/jars/mysql-connector-j-8.0.33.jar with timestamp 1771523177189
+26/02/19 17:46:19 INFO TransportClientFactory: Successfully created connection to DESKTOP-QFS7I0I/192.168.245.1:64657 after 53 ms (0 ms spent in bootstraps)
+26/02/19 17:46:19 INFO Utils: Fetching spark://DESKTOP-QFS7I0I:64657/jars/mysql-connector-j-8.0.33.jar to C:\Users\AbdulSuleman\AppData\Local\Temp\spark-0f774b64-fe49-4f31-804f-8cb80c6db2f7\userFiles-9ba6078e-a9b7-413e-a191-482918d40aa8\fetchFileTemp4682712021976663289.tmp
+26/02/19 17:46:19 INFO Executor: Adding file:/C:/Users/AbdulSuleman/AppData/Local/Temp/spark-0f774b64-fe49-4f31-804f-8cb80c6db2f7/userFiles-9ba6078e-a9b7-413e-a191-482918d40aa8/mysql-connector-j-8.0.33.jar to class loader default
+26/02/19 17:46:19 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 64674.
+26/02/19 17:46:19 INFO NettyBlockTransferService: Server created on DESKTOP-QFS7I0I:64674
+26/02/19 17:46:19 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+26/02/19 17:46:19 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, DESKTOP-QFS7I0I, 64674, None)
+26/02/19 17:46:19 INFO BlockManagerMasterEndpoint: Registering block manager DESKTOP-QFS7I0I:64674 with 434.4 MiB RAM, BlockManagerId(driver, DESKTOP-QFS7I0I, 64674, None)
+26/02/19 17:46:19 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, DESKTOP-QFS7I0I, 64674, None)
+26/02/19 17:46:19 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, DESKTOP-QFS7I0I, 64674, None)
+26/02/19 17:46:23 INFO SharedState: Setting hive.metastore.warehouse.dir ('null') to the value of spark.sql.warehouse.dir.
+26/02/19 17:46:23 INFO SharedState: Warehouse path is 'file:/C:/Users/AbdulSuleman/Desktop/Data%20Engineering%20Upskill%20Projects/real-time-data-ingestion-using-spark/src/spark-warehouse'.
+26/02/19 17:46:24 INFO InMemoryFileIndex: It took 50 ms to list leaf files for 1 paths.
+26/02/19 17:46:26 INFO StateStoreCoordinatorRef: Registered StateStoreCoordinator endpoint
+26/02/19 17:46:26 WARN ResolveWriteToStream: Temporary checkpoint location created which is deleted normally when the query didn't fail: C:\Users\AbdulSuleman\AppData\Local\Temp\temporary-0f136b2f-af18-4fea-878a-aab6edfae241. If it's required to delete it under any circumstances, please set spark.sql.streaming.forceDeleteTempCheckpointLocation to true. Important to know deleting temp checkpoint folder is best effort.
+26/02/19 17:46:26 INFO ResolveWriteToStream: Checkpoint root C:\Users\AbdulSuleman\AppData\Local\Temp\temporary-0f136b2f-af18-4fea-878a-aab6edfae241 resolved to file:/C:/Users/AbdulSuleman/AppData/Local/Temp/temporary-0f136b2f-af18-4fea-878a-aab6edfae241.
+26/02/19 17:46:26 WARN ResolveWriteToStream: spark.sql.adaptive.enabled is not supported in streaming DataFrames/Datasets and will be disabled.
+26/02/19 17:46:26 INFO CheckpointFileManager: Writing atomically to file:/C:/Users/AbdulSuleman/AppData/Local/Temp/temporary-0f136b2f-af18-4fea-878a-aab6edfae241/metadata using temp file file:/C:/Users/AbdulSuleman/AppData/Local/Temp/temporary-0f136b2f-af18-4fea-878a-aab6edfae241/.metadata.648ad2bb-2abe-4e6c-8761-7220bbb9bb8d.tmp
+26/02/19 17:46:27 INFO CheckpointFileManager: Renamed temp file file:/C:/Users/AbdulSuleman/AppData/Local/Temp/temporary-0f136b2f-af18-4fea-878a-aab6edfae241/.metadata.648ad2bb-2abe-4e6c-8761-7220bbb9bb8d.tmp to file:/C:/Users/AbdulSuleman/AppData/Local/Temp/temporary-0f136b2f-af18-4fea-878a-aab6edfae241/metadata
+26/02/19 17:46:27 INFO MicroBatchExecution: Starting [id = 1735f1bf-8bc4-4330-b3fa-24f7a2470e99, runId = 8d23e684-b945-4af4-9fd7-d8a163bb4068]. Use file:/C:/Users/AbdulSuleman/AppData/Local/Temp/temporary-0f136b2f-af18-4fea-878a-aab6edfae241 to store the query checkpoint.
+26/02/19 17:46:27 INFO FileStreamSourceLog: Set the compact interval to 10 [defaultCompactInterval: 10]
+26/02/19 17:46:27 INFO FileStreamSourceLog: BatchIds found from listing:
+26/02/19 17:46:27 INFO FileStreamSourceLog: BatchIds found from listing:
+26/02/19 17:46:27 INFO FileStreamSource: maxFilesPerBatch = Some(1), maxBytesPerBatch = None, maxFileAgeMs = 604800000
+26/02/19 17:46:27 INFO MicroBatchExecution: Using Source [FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data]] from DataSourceV1 named 'FileSource[file:///C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data]' [DataSource(org.apache.spark.sql.classic.SparkSession@2e658651,csv,List(),Some(StructType(StructField(event_id,StringType,true),StructField(user_id,IntegerType,true),StructField(product_id,IntegerType,true),StructField(product_name,StringType,true),StructField(event_type,StringType,true),StructField(price,IntegerType,true),StructField(event_time,StringType,true))),List(),None,Map(maxFilesPerTrigger -> 1, path -> file:///C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data),None)]
+26/02/19 17:46:27 INFO MicroBatchExecution: Finish initializing with logical plan:
+~WriteToMicroBatchDataSourceV1 ForeachBatchSink, 1735f1bf-8bc4-4330-b3fa-24f7a2470e99, Append
++- ~Filter isnotnull(user_id#1)
+   +- ~Project [event_id#0, user_id#1, product_id#2, product_name#3, event_type#4, price#5, cast(event_time#6 as timestamp) AS event_time#8]
+      +- ~StreamingExecutionRelation FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data], [event_id#0, user_id#1, product_id#2, product_name#3, event_type#4, price#5, event_time#6]
+
+26/02/19 17:46:27 INFO OffsetSeqLog: BatchIds found from listing:
+26/02/19 17:46:27 INFO CommitLog: BatchIds found from listing:
+26/02/19 17:46:27 INFO OffsetSeqLog: BatchIds found from listing:
+26/02/19 17:46:27 INFO OffsetSeqLog: BatchIds found from listing:
+26/02/19 17:46:27 INFO MicroBatchExecution: Starting new streaming query.
+26/02/19 17:46:27 INFO MicroBatchExecution: Stream started from {}
+26/02/19 17:46:27 INFO InMemoryFileIndex: It took 3 ms to list leaf files for 1 paths.
+26/02/19 17:46:27 INFO CheckpointFileManager: Writing atomically to file:/C:/Users/AbdulSuleman/AppData/Local/Temp/temporary-0f136b2f-af18-4fea-878a-aab6edfae241/sources/0/0 using temp file file:/C:/Users/AbdulSuleman/AppData/Local/Temp/temporary-0f136b2f-af18-4fea-878a-aab6edfae241/sources/0/.0.02efa310-8d47-412e-8376-0cc817a0dc4b.tmp
+26/02/19 17:46:27 INFO CheckpointFileManager: Renamed temp file file:/C:/Users/AbdulSuleman/AppData/Local/Temp/temporary-0f136b2f-af18-4fea-878a-aab6edfae241/sources/0/.0.02efa310-8d47-412e-8376-0cc817a0dc4b.tmp to file:/C:/Users/AbdulSuleman/AppData/Local/Temp/temporary-0f136b2f-af18-4fea-878a-aab6edfae241/sources/0/0
+26/02/19 17:46:27 INFO FileStreamSource: Log offset set to 0 with 1 new files
+26/02/19 17:46:27 INFO CheckpointFileManager: Writing atomically to file:/C:/Users/AbdulSuleman/AppData/Local/Temp/temporary-0f136b2f-af18-4fea-878a-aab6edfae241/offsets/0 using temp file file:/C:/Users/AbdulSuleman/AppData/Local/Temp/temporary-0f136b2f-af18-4fea-878a-aab6edfae241/offsets/.0.224dbde6-1077-4e63-aa87-183971a3511f.tmp
+26/02/19 17:46:28 INFO CheckpointFileManager: Renamed temp file file:/C:/Users/AbdulSuleman/AppData/Local/Temp/temporary-0f136b2f-af18-4fea-878a-aab6edfae241/offsets/.0.224dbde6-1077-4e63-aa87-183971a3511f.tmp to file:/C:/Users/AbdulSuleman/AppData/Local/Temp/temporary-0f136b2f-af18-4fea-878a-aab6edfae241/offsets/0
+26/02/19 17:46:28 INFO MicroBatchExecution: Committed offsets for batch 0. Metadata OffsetSeqMetadata(0,1771523187829,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.HDFSBackedStateStoreProvider, spark.sql.streaming.stateStore.rocksdb.formatVersion -> 5, spark.sql.streaming.stateStore.encodingFormat -> unsaferow, spark.sql.streaming.statefulOperator.useStrictDistribution -> true, spark.sql.streaming.flatMapGroupsWithState.stateFormatVersion -> 2, spark.sql.streaming.multipleWatermarkPolicy -> min, spark.sql.streaming.aggregation.stateFormatVersion -> 2, spark.sql.shuffle.partitions -> 200, spark.sql.streaming.join.stateFormatVersion -> 2, spark.sql.streaming.stateStore.compression.codec -> lz4, spark.sql.optimizer.pruneFiltersCanPruneStreamingSubplan -> false))
+26/02/19 17:46:28 INFO FileStreamSource: Processing 1 files from 0:0
+26/02/19 17:46:28 INFO InMemoryFileIndex: It took 3 ms to list leaf files for 1 paths.
+26/02/19 17:46:28 INFO FileSourceStrategy: Pushed Filters: IsNotNull(user_id)
+26/02/19 17:46:28 INFO FileSourceStrategy: Post-Scan Filters: Set(isnotnull(user_id#17))
+26/02/19 17:46:28 INFO FileSourceStrategy: Pushed Filters: IsNotNull(user_id)
+26/02/19 17:46:28 INFO FileSourceStrategy: Post-Scan Filters: Set(isnotnull(user_id#17))
+26/02/19 17:46:29 INFO CodeGenerator: Code generated in 262.0413 ms
+26/02/19 17:46:29 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+26/02/19 17:46:29 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 215.9 KiB, free 434.2 MiB)
+26/02/19 17:46:29 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 39.3 KiB, free 434.2 MiB)
+26/02/19 17:46:29 INFO SparkContext: Created broadcast 0 from start at DirectMethodHandleAccessor.java:103
+26/02/19 17:46:29 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+26/02/19 17:46:33 INFO CodeGenerator: Code generated in 14.6778 ms
+26/02/19 17:46:33 INFO SparkContext: Starting job: start at DirectMethodHandleAccessor.java:103
+26/02/19 17:46:33 INFO DAGScheduler: Got job 0 (start at DirectMethodHandleAccessor.java:103) with 1 output partitions
+26/02/19 17:46:33 INFO DAGScheduler: Final stage: ResultStage 0 (start at DirectMethodHandleAccessor.java:103)
+26/02/19 17:46:33 INFO DAGScheduler: Parents of final stage: List()
+26/02/19 17:46:33 INFO DAGScheduler: Missing parents: List()
+26/02/19 17:46:33 INFO DAGScheduler: Missing parents found for ResultStage 0: List()
+26/02/19 17:46:33 INFO DAGScheduler: Submitting ResultStage 0 (MapPartitionsRDD[7] at start at DirectMethodHandleAccessor.java:103), which has no missing parents
+26/02/19 17:46:33 INFO MemoryStore: Block broadcast_1 stored as values in memory (estimated size 36.4 KiB, free 434.1 MiB)
+26/02/19 17:46:33 INFO MemoryStore: Block broadcast_1_piece0 stored as bytes in memory (estimated size 15.9 KiB, free 434.1 MiB)
+26/02/19 17:46:33 INFO SparkContext: Created broadcast 1 from broadcast at DAGScheduler.scala:1686
+26/02/19 17:46:33 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 0 (MapPartitionsRDD[7] at start at DirectMethodHandleAccessor.java:103) (first 15 tasks are for partitions Vector(0))
+26/02/19 17:46:33 INFO TaskSchedulerImpl: Adding task set 0.0 with 1 tasks resource profile 0
+26/02/19 17:46:33 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0) (DESKTOP-QFS7I0I,executor driver, partition 0, PROCESS_LOCAL, 10539 bytes)
+26/02/19 17:46:33 INFO Executor: Running task 0.0 in stage 0.0 (TID 0)
+26/02/19 17:46:33 INFO CodeGenerator: Code generated in 27.6311 ms
+26/02/19 17:46:33 INFO CodeGenerator: Code generated in 16.791 ms
+26/02/19 17:46:33 INFO CodeGenerator: Code generated in 33.9141 ms
+26/02/19 17:46:33 INFO FileScanRDD: Reading File path: file:///C:/Users/AbdulSuleman/Desktop/Data%20Engineering%20Upskill%20Projects/real-time-data-ingestion-using-spark/src/streaming_data/events_1771523177.csv, range: 0-2022, partition values: [empty row]
+26/02/19 17:46:33 INFO CodeGenerator: Code generated in 15.5237 ms
+26/02/19 17:46:33 INFO CodeGenerator: Code generated in 5.4294 ms
+26/02/19 17:46:42 INFO Executor: Finished task 0.0 in stage 0.0 (TID 0). 1622 bytes result sent to driver
+26/02/19 17:46:42 INFO TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 8855 ms on DESKTOP-QFS7I0I (executor driver) (1/1)
+26/02/19 17:46:42 INFO TaskSchedulerImpl: Removed TaskSet 0.0 whose tasks have all completed, from pool
+26/02/19 17:46:42 INFO DAGScheduler: ResultStage 0 (start at DirectMethodHandleAccessor.java:103) finished in 8974 ms
+26/02/19 17:46:42 INFO DAGScheduler: Job 0 is finished. Cancelling potential speculative or zombie tasks for this job
+26/02/19 17:46:42 INFO TaskSchedulerImpl: Canceling stage 0
+26/02/19 17:46:42 INFO TaskSchedulerImpl: Killing all running tasks in stage 0: Stage finished
+26/02/19 17:46:42 INFO DAGScheduler: Job 0 finished: start at DirectMethodHandleAccessor.java:103, took 9028.0924 ms
+26/02/19 17:46:44 INFO JDBCRDD: Generated JDBC query to get scan output schema: SELECT * FROM events WHERE 1=0
+26/02/19 17:46:45 INFO CheckpointFileManager: Writing atomically to file:/C:/Users/AbdulSuleman/AppData/Local/Temp/temporary-0f136b2f-af18-4fea-878a-aab6edfae241/commits/0 using temp file file:/C:/Users/AbdulSuleman/AppData/Local/Temp/temporary-0f136b2f-af18-4fea-878a-aab6edfae241/commits/.0.19e5799d-7815-49f3-9c6a-7af659ac3d29.tmp
+26/02/19 17:46:45 INFO CheckpointFileManager: Renamed temp file file:/C:/Users/AbdulSuleman/AppData/Local/Temp/temporary-0f136b2f-af18-4fea-878a-aab6edfae241/commits/.0.19e5799d-7815-49f3-9c6a-7af659ac3d29.tmp to file:/C:/Users/AbdulSuleman/AppData/Local/Temp/temporary-0f136b2f-af18-4fea-878a-aab6edfae241/commits/0
+26/02/19 17:46:45 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=1
+26/02/19 17:46:45 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=1
+26/02/19 17:46:45 INFO ProgressReporter: Streaming query made progress: {
+  "id" : "1735f1bf-8bc4-4330-b3fa-24f7a2470e99",
+  "runId" : "8d23e684-b945-4af4-9fd7-d8a163bb4068",
+  "name" : null,
+  "timestamp" : "2026-02-19T17:46:27.273Z",
+  "batchId" : 0,
+  "batchDuration" : 18580,
+  "numInputRows" : 21,
+  "inputRowsPerSecond" : 0.0,
+  "processedRowsPerSecond" : 1.1,
+  "durationMs" : {
+    "addBatch" : 16352,
+    "commitOffsets" : 568,
+    "getBatch" : 88,
+    "latestOffset" : 550,
+    "queryPlanning" : 541,
+    "triggerExecution" : 18576,
+    "walCommit" : 452
+  },
+  "stateOperators" : [ ],
+  "sources" : [ {
+    "description" : "FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data]",
+    "startOffset" : null,
+    "endOffset" : {
+      "logOffset" : 0
+    },
+    "latestOffset" : null,
+    "numInputRows" : 21,
+    "inputRowsPerSecond" : 0.0,
+    "processedRowsPerSecond" : 1.1
+  } ],
+  "sink" : {
+    "description" : "ForeachBatchSink",
+    "numOutputRows" : -1
+  }
+}
+26/02/19 17:46:45 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:46:45 INFO CheckpointFileManager: Writing atomically to file:/C:/Users/AbdulSuleman/AppData/Local/Temp/temporary-0f136b2f-af18-4fea-878a-aab6edfae241/sources/0/1 using temp file file:/C:/Users/AbdulSuleman/AppData/Local/Temp/temporary-0f136b2f-af18-4fea-878a-aab6edfae241/sources/0/.1.e1ad0c43-1a2f-4ec1-8ece-f1e56e483150.tmp
+26/02/19 17:46:46 INFO CheckpointFileManager: Renamed temp file file:/C:/Users/AbdulSuleman/AppData/Local/Temp/temporary-0f136b2f-af18-4fea-878a-aab6edfae241/sources/0/.1.e1ad0c43-1a2f-4ec1-8ece-f1e56e483150.tmp to file:/C:/Users/AbdulSuleman/AppData/Local/Temp/temporary-0f136b2f-af18-4fea-878a-aab6edfae241/sources/0/1
+26/02/19 17:46:46 INFO FileStreamSource: Log offset set to 1 with 1 new files
+26/02/19 17:46:46 INFO CheckpointFileManager: Writing atomically to file:/C:/Users/AbdulSuleman/AppData/Local/Temp/temporary-0f136b2f-af18-4fea-878a-aab6edfae241/offsets/1 using temp file file:/C:/Users/AbdulSuleman/AppData/Local/Temp/temporary-0f136b2f-af18-4fea-878a-aab6edfae241/offsets/.1.c79eea57-d780-4bc9-a281-5b2c688a9df5.tmp
+26/02/19 17:46:46 INFO CheckpointFileManager: Renamed temp file file:/C:/Users/AbdulSuleman/AppData/Local/Temp/temporary-0f136b2f-af18-4fea-878a-aab6edfae241/offsets/.1.c79eea57-d780-4bc9-a281-5b2c688a9df5.tmp to file:/C:/Users/AbdulSuleman/AppData/Local/Temp/temporary-0f136b2f-af18-4fea-878a-aab6edfae241/offsets/1
+26/02/19 17:46:46 INFO MicroBatchExecution: Committed offsets for batch 1. Metadata OffsetSeqMetadata(0,1771523206372,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.HDFSBackedStateStoreProvider, spark.sql.streaming.stateStore.rocksdb.formatVersion -> 5, spark.sql.streaming.stateStore.encodingFormat -> unsaferow, spark.sql.streaming.statefulOperator.useStrictDistribution -> true, spark.sql.streaming.flatMapGroupsWithState.stateFormatVersion -> 2, spark.sql.streaming.multipleWatermarkPolicy -> min, spark.sql.streaming.aggregation.stateFormatVersion -> 2, spark.sql.shuffle.partitions -> 200, spark.sql.streaming.join.stateFormatVersion -> 2, spark.sql.streaming.stateStore.compression.codec -> lz4, spark.sql.optimizer.pruneFiltersCanPruneStreamingSubplan -> false))
+26/02/19 17:46:46 INFO FileStreamSource: Processing 1 files from 1:1
+26/02/19 17:46:46 INFO InMemoryFileIndex: It took 3 ms to list leaf files for 1 paths.
+26/02/19 17:46:47 INFO FileSourceStrategy: Pushed Filters: IsNotNull(user_id)
+26/02/19 17:46:47 INFO FileSourceStrategy: Post-Scan Filters: Set(isnotnull(user_id#68))
+26/02/19 17:46:47 INFO FileSourceStrategy: Pushed Filters: IsNotNull(user_id)
+26/02/19 17:46:47 INFO FileSourceStrategy: Post-Scan Filters: Set(isnotnull(user_id#68))
+26/02/19 17:46:47 INFO MemoryStore: Block broadcast_2 stored as values in memory (estimated size 215.9 KiB, free 433.9 MiB)
+26/02/19 17:46:47 INFO MemoryStore: Block broadcast_2_piece0 stored as bytes in memory (estimated size 39.3 KiB, free 433.9 MiB)
+26/02/19 17:46:47 INFO SparkContext: Created broadcast 2 from start at DirectMethodHandleAccessor.java:103
+26/02/19 17:46:47 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+26/02/19 17:46:49 INFO SparkContext: Starting job: start at DirectMethodHandleAccessor.java:103
+26/02/19 17:46:49 INFO DAGScheduler: Got job 1 (start at DirectMethodHandleAccessor.java:103) with 1 output partitions
+26/02/19 17:46:49 INFO DAGScheduler: Final stage: ResultStage 1 (start at DirectMethodHandleAccessor.java:103)
+26/02/19 17:46:49 INFO DAGScheduler: Parents of final stage: List()
+26/02/19 17:46:49 INFO DAGScheduler: Missing parents: List()
+26/02/19 17:46:49 INFO DAGScheduler: Missing parents found for ResultStage 1: List()
+26/02/19 17:46:49 INFO DAGScheduler: Submitting ResultStage 1 (MapPartitionsRDD[15] at start at DirectMethodHandleAccessor.java:103), which has no missing parents
+26/02/19 17:46:49 INFO MemoryStore: Block broadcast_3 stored as values in memory (estimated size 36.4 KiB, free 433.9 MiB)
+26/02/19 17:46:49 INFO MemoryStore: Block broadcast_3_piece0 stored as bytes in memory (estimated size 15.9 KiB, free 433.9 MiB)
+26/02/19 17:46:49 INFO SparkContext: Created broadcast 3 from broadcast at DAGScheduler.scala:1686
+26/02/19 17:46:49 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 1 (MapPartitionsRDD[15] at start at DirectMethodHandleAccessor.java:103) (first 15 tasks are for partitions Vector(0))
+26/02/19 17:46:49 INFO TaskSchedulerImpl: Adding task set 1.0 with 1 tasks resource profile 0
+26/02/19 17:46:49 INFO TaskSetManager: Starting task 0.0 in stage 1.0 (TID 1) (DESKTOP-QFS7I0I,executor driver, partition 0, PROCESS_LOCAL, 10539 bytes)
+26/02/19 17:46:49 INFO Executor: Running task 0.0 in stage 1.0 (TID 1)
+26/02/19 17:46:49 INFO FileScanRDD: Reading File path: file:///C:/Users/AbdulSuleman/Desktop/Data%20Engineering%20Upskill%20Projects/real-time-data-ingestion-using-spark/src/streaming_data/events_1771523197.csv, range: 0-2037, partition values: [empty row]
+26/02/19 17:46:58 INFO Executor: Finished task 0.0 in stage 1.0 (TID 1). 1536 bytes result sent to driver
+26/02/19 17:46:58 INFO TaskSetManager: Finished task 0.0 in stage 1.0 (TID 1) in 9024 ms on DESKTOP-QFS7I0I (executor driver) (1/1)
+26/02/19 17:46:58 INFO TaskSchedulerImpl: Removed TaskSet 1.0 whose tasks have all completed, from pool
+26/02/19 17:46:58 INFO DAGScheduler: ResultStage 1 (start at DirectMethodHandleAccessor.java:103) finished in 9035 ms
+26/02/19 17:46:58 INFO DAGScheduler: Job 1 is finished. Cancelling potential speculative or zombie tasks for this job
+26/02/19 17:46:58 INFO TaskSchedulerImpl: Canceling stage 1
+26/02/19 17:46:58 INFO TaskSchedulerImpl: Killing all running tasks in stage 1: Stage finished
+26/02/19 17:46:58 INFO DAGScheduler: Job 1 finished: start at DirectMethodHandleAccessor.java:103, took 9039.5578 ms
+26/02/19 17:47:01 INFO JDBCRDD: Generated JDBC query to get scan output schema: SELECT * FROM events WHERE 1=0
+26/02/19 17:47:01 INFO CheckpointFileManager: Writing atomically to file:/C:/Users/AbdulSuleman/AppData/Local/Temp/temporary-0f136b2f-af18-4fea-878a-aab6edfae241/commits/1 using temp file file:/C:/Users/AbdulSuleman/AppData/Local/Temp/temporary-0f136b2f-af18-4fea-878a-aab6edfae241/commits/.1.36b07297-4954-4767-b3a5-49538293cad5.tmp
+26/02/19 17:47:01 INFO CheckpointFileManager: Renamed temp file file:/C:/Users/AbdulSuleman/AppData/Local/Temp/temporary-0f136b2f-af18-4fea-878a-aab6edfae241/commits/.1.36b07297-4954-4767-b3a5-49538293cad5.tmp to file:/C:/Users/AbdulSuleman/AppData/Local/Temp/temporary-0f136b2f-af18-4fea-878a-aab6edfae241/commits/1
+26/02/19 17:47:01 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:01 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:01 INFO ProgressReporter: Streaming query made progress: {
+  "id" : "1735f1bf-8bc4-4330-b3fa-24f7a2470e99",
+  "runId" : "8d23e684-b945-4af4-9fd7-d8a163bb4068",
+  "name" : null,
+  "timestamp" : "2026-02-19T17:46:45.902Z",
+  "batchId" : 1,
+  "batchDuration" : 15890,
+  "numInputRows" : 21,
+  "inputRowsPerSecond" : 1.1,
+  "processedRowsPerSecond" : 1.3,
+  "durationMs" : {
+    "addBatch" : 14364,
+    "commitOffsets" : 381,
+    "getBatch" : 24,
+    "latestOffset" : 470,
+    "queryPlanning" : 47,
+    "triggerExecution" : 15889,
+    "walCommit" : 591
+  },
+  "stateOperators" : [ ],
+  "sources" : [ {
+    "description" : "FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data]",
+    "startOffset" : {
+      "logOffset" : 0
+    },
+    "endOffset" : {
+      "logOffset" : 1
+    },
+    "latestOffset" : null,
+    "numInputRows" : 21,
+    "inputRowsPerSecond" : 1.1,
+    "processedRowsPerSecond" : 1.3
+  } ],
+  "sink" : {
+    "description" : "ForeachBatchSink",
+    "numOutputRows" : -1
+  }
+}
+26/02/19 17:47:01 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:01 INFO CheckpointFileManager: Writing atomically to file:/C:/Users/AbdulSuleman/AppData/Local/Temp/temporary-0f136b2f-af18-4fea-878a-aab6edfae241/sources/0/2 using temp file file:/C:/Users/AbdulSuleman/AppData/Local/Temp/temporary-0f136b2f-af18-4fea-878a-aab6edfae241/sources/0/.2.610c0706-311e-47d8-b1ab-bdf6748875ac.tmp
+26/02/19 17:47:02 INFO CheckpointFileManager: Renamed temp file file:/C:/Users/AbdulSuleman/AppData/Local/Temp/temporary-0f136b2f-af18-4fea-878a-aab6edfae241/sources/0/.2.610c0706-311e-47d8-b1ab-bdf6748875ac.tmp to file:/C:/Users/AbdulSuleman/AppData/Local/Temp/temporary-0f136b2f-af18-4fea-878a-aab6edfae241/sources/0/2
+26/02/19 17:47:02 INFO FileStreamSource: Log offset set to 2 with 1 new files
+26/02/19 17:47:02 INFO CheckpointFileManager: Writing atomically to file:/C:/Users/AbdulSuleman/AppData/Local/Temp/temporary-0f136b2f-af18-4fea-878a-aab6edfae241/offsets/2 using temp file file:/C:/Users/AbdulSuleman/AppData/Local/Temp/temporary-0f136b2f-af18-4fea-878a-aab6edfae241/offsets/.2.4551fb78-bddb-42f9-a590-01b674438995.tmp
+26/02/19 17:47:02 INFO CheckpointFileManager: Renamed temp file file:/C:/Users/AbdulSuleman/AppData/Local/Temp/temporary-0f136b2f-af18-4fea-878a-aab6edfae241/offsets/.2.4551fb78-bddb-42f9-a590-01b674438995.tmp to file:/C:/Users/AbdulSuleman/AppData/Local/Temp/temporary-0f136b2f-af18-4fea-878a-aab6edfae241/offsets/2
+26/02/19 17:47:02 INFO MicroBatchExecution: Committed offsets for batch 2. Metadata OffsetSeqMetadata(0,1771523222195,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.HDFSBackedStateStoreProvider, spark.sql.streaming.stateStore.rocksdb.formatVersion -> 5, spark.sql.streaming.stateStore.encodingFormat -> unsaferow, spark.sql.streaming.statefulOperator.useStrictDistribution -> true, spark.sql.streaming.flatMapGroupsWithState.stateFormatVersion -> 2, spark.sql.streaming.multipleWatermarkPolicy -> min, spark.sql.streaming.aggregation.stateFormatVersion -> 2, spark.sql.shuffle.partitions -> 200, spark.sql.streaming.join.stateFormatVersion -> 2, spark.sql.streaming.stateStore.compression.codec -> lz4, spark.sql.optimizer.pruneFiltersCanPruneStreamingSubplan -> false))
+26/02/19 17:47:02 INFO FileStreamSource: Processing 1 files from 2:2
+26/02/19 17:47:02 INFO InMemoryFileIndex: It took 2 ms to list leaf files for 1 paths.
+26/02/19 17:47:02 INFO FileSourceStrategy: Pushed Filters: IsNotNull(user_id)
+26/02/19 17:47:02 INFO FileSourceStrategy: Post-Scan Filters: Set(isnotnull(user_id#119))
+26/02/19 17:47:02 INFO FileSourceStrategy: Pushed Filters: IsNotNull(user_id)
+26/02/19 17:47:02 INFO FileSourceStrategy: Post-Scan Filters: Set(isnotnull(user_id#119))
+26/02/19 17:47:02 INFO MemoryStore: Block broadcast_4 stored as values in memory (estimated size 215.9 KiB, free 433.6 MiB)
+26/02/19 17:47:02 INFO MemoryStore: Block broadcast_4_piece0 stored as bytes in memory (estimated size 39.3 KiB, free 433.6 MiB)
+26/02/19 17:47:02 INFO SparkContext: Created broadcast 4 from start at DirectMethodHandleAccessor.java:103
+26/02/19 17:47:02 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+26/02/19 17:47:05 INFO SparkContext: Starting job: start at DirectMethodHandleAccessor.java:103
+26/02/19 17:47:05 INFO DAGScheduler: Got job 2 (start at DirectMethodHandleAccessor.java:103) with 1 output partitions
+26/02/19 17:47:05 INFO DAGScheduler: Final stage: ResultStage 2 (start at DirectMethodHandleAccessor.java:103)
+26/02/19 17:47:05 INFO DAGScheduler: Parents of final stage: List()
+26/02/19 17:47:05 INFO DAGScheduler: Missing parents: List()
+26/02/19 17:47:05 INFO DAGScheduler: Missing parents found for ResultStage 2: List()
+26/02/19 17:47:05 INFO DAGScheduler: Submitting ResultStage 2 (MapPartitionsRDD[23] at start at DirectMethodHandleAccessor.java:103), which has no missing parents
+26/02/19 17:47:05 INFO MemoryStore: Block broadcast_5 stored as values in memory (estimated size 36.4 KiB, free 433.6 MiB)
+26/02/19 17:47:05 INFO MemoryStore: Block broadcast_5_piece0 stored as bytes in memory (estimated size 15.9 KiB, free 433.6 MiB)
+26/02/19 17:47:05 INFO SparkContext: Created broadcast 5 from broadcast at DAGScheduler.scala:1686
+26/02/19 17:47:05 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 2 (MapPartitionsRDD[23] at start at DirectMethodHandleAccessor.java:103) (first 15 tasks are for partitions Vector(0))
+26/02/19 17:47:05 INFO TaskSchedulerImpl: Adding task set 2.0 with 1 tasks resource profile 0
+26/02/19 17:47:05 INFO TaskSetManager: Starting task 0.0 in stage 2.0 (TID 2) (DESKTOP-QFS7I0I,executor driver, partition 0, PROCESS_LOCAL, 10539 bytes)
+26/02/19 17:47:05 INFO Executor: Running task 0.0 in stage 2.0 (TID 2)
+26/02/19 17:47:05 INFO FileScanRDD: Reading File path: file:///C:/Users/AbdulSuleman/Desktop/Data%20Engineering%20Upskill%20Projects/real-time-data-ingestion-using-spark/src/streaming_data/events_1771523217.csv, range: 0-2005, partition values: [empty row]
+26/02/19 17:47:14 INFO Executor: Finished task 0.0 in stage 2.0 (TID 2). 1536 bytes result sent to driver
+26/02/19 17:47:14 INFO TaskSetManager: Finished task 0.0 in stage 2.0 (TID 2) in 8970 ms on DESKTOP-QFS7I0I (executor driver) (1/1)
+26/02/19 17:47:14 INFO TaskSchedulerImpl: Removed TaskSet 2.0 whose tasks have all completed, from pool
+26/02/19 17:47:14 INFO DAGScheduler: ResultStage 2 (start at DirectMethodHandleAccessor.java:103) finished in 8982 ms
+26/02/19 17:47:14 INFO DAGScheduler: Job 2 is finished. Cancelling potential speculative or zombie tasks for this job
+26/02/19 17:47:14 INFO TaskSchedulerImpl: Canceling stage 2
+26/02/19 17:47:14 INFO TaskSchedulerImpl: Killing all running tasks in stage 2: Stage finished
+26/02/19 17:47:14 INFO DAGScheduler: Job 2 finished: start at DirectMethodHandleAccessor.java:103, took 8985.8608 ms
+26/02/19 17:47:16 INFO JDBCRDD: Generated JDBC query to get scan output schema: SELECT * FROM events WHERE 1=0
+26/02/19 17:47:16 INFO CheckpointFileManager: Writing atomically to file:/C:/Users/AbdulSuleman/AppData/Local/Temp/temporary-0f136b2f-af18-4fea-878a-aab6edfae241/commits/2 using temp file file:/C:/Users/AbdulSuleman/AppData/Local/Temp/temporary-0f136b2f-af18-4fea-878a-aab6edfae241/commits/.2.700f787a-7b31-41d8-8f8f-02838bff082e.tmp
+26/02/19 17:47:16 INFO CheckpointFileManager: Renamed temp file file:/C:/Users/AbdulSuleman/AppData/Local/Temp/temporary-0f136b2f-af18-4fea-878a-aab6edfae241/commits/.2.700f787a-7b31-41d8-8f8f-02838bff082e.tmp to file:/C:/Users/AbdulSuleman/AppData/Local/Temp/temporary-0f136b2f-af18-4fea-878a-aab6edfae241/commits/2
+26/02/19 17:47:16 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:16 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:16 INFO ProgressReporter: Streaming query made progress: {
+  "id" : "1735f1bf-8bc4-4330-b3fa-24f7a2470e99",
+  "runId" : "8d23e684-b945-4af4-9fd7-d8a163bb4068",
+  "name" : null,
+  "timestamp" : "2026-02-19T17:47:01.794Z",
+  "batchId" : 2,
+  "batchDuration" : 15095,
+  "numInputRows" : 21,
+  "inputRowsPerSecond" : 1.3,
+  "processedRowsPerSecond" : 1.4,
+  "durationMs" : {
+    "addBatch" : 13904,
+    "commitOffsets" : 378,
+    "getBatch" : 17,
+    "latestOffset" : 401,
+    "queryPlanning" : 22,
+    "triggerExecution" : 15095,
+    "walCommit" : 367
+  },
+  "stateOperators" : [ ],
+  "sources" : [ {
+    "description" : "FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data]",
+    "startOffset" : {
+      "logOffset" : 1
+    },
+    "endOffset" : {
+      "logOffset" : 2
+    },
+    "latestOffset" : null,
+    "numInputRows" : 21,
+    "inputRowsPerSecond" : 1.3,
+    "processedRowsPerSecond" : 1.4
+  } ],
+  "sink" : {
+    "description" : "ForeachBatchSink",
+    "numOutputRows" : -1
+  }
+}
+26/02/19 17:47:16 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:16 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:16 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:16 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:16 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:16 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:16 INFO InMemoryFileIndex: It took 5 ms to list leaf files for 1 paths.
+26/02/19 17:47:16 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:16 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:16 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:16 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:16 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:17 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:17 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:17 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:17 INFO InMemoryFileIndex: It took 3 ms to list leaf files for 1 paths.
+26/02/19 17:47:17 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:17 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:17 INFO InMemoryFileIndex: It took 3 ms to list leaf files for 1 paths.
+26/02/19 17:47:17 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:17 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:17 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:17 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:17 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:17 INFO InMemoryFileIndex: It took 6 ms to list leaf files for 1 paths.
+26/02/19 17:47:17 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:17 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:17 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:17 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:17 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:17 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:17 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:17 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:17 INFO InMemoryFileIndex: It took 5 ms to list leaf files for 1 paths.
+26/02/19 17:47:17 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:17 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:17 INFO InMemoryFileIndex: It took 5 ms to list leaf files for 1 paths.
+26/02/19 17:47:17 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:17 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:17 INFO InMemoryFileIndex: It took 7 ms to list leaf files for 1 paths.
+26/02/19 17:47:17 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:17 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:17 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:17 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:17 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:17 INFO InMemoryFileIndex: It took 5 ms to list leaf files for 1 paths.
+26/02/19 17:47:17 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:17 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:17 INFO InMemoryFileIndex: It took 6 ms to list leaf files for 1 paths.
+26/02/19 17:47:17 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:17 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:17 INFO InMemoryFileIndex: It took 3 ms to list leaf files for 1 paths.
+26/02/19 17:47:17 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:17 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:17 INFO InMemoryFileIndex: It took 3 ms to list leaf files for 1 paths.
+26/02/19 17:47:17 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:17 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:17 INFO InMemoryFileIndex: It took 3 ms to list leaf files for 1 paths.
+26/02/19 17:47:17 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:17 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:17 INFO InMemoryFileIndex: It took 3 ms to list leaf files for 1 paths.
+26/02/19 17:47:17 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:17 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:17 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:17 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:17 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:17 INFO InMemoryFileIndex: It took 3 ms to list leaf files for 1 paths.
+26/02/19 17:47:17 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:17 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:17 INFO InMemoryFileIndex: It took 3 ms to list leaf files for 1 paths.
+26/02/19 17:47:17 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:17 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:17 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:17 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:17 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:17 INFO InMemoryFileIndex: It took 6 ms to list leaf files for 1 paths.
+26/02/19 17:47:17 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:17 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:17 INFO InMemoryFileIndex: It took 6 ms to list leaf files for 1 paths.
+26/02/19 17:47:17 INFO CheckpointFileManager: Writing atomically to file:/C:/Users/AbdulSuleman/AppData/Local/Temp/temporary-0f136b2f-af18-4fea-878a-aab6edfae241/sources/0/3 using temp file file:/C:/Users/AbdulSuleman/AppData/Local/Temp/temporary-0f136b2f-af18-4fea-878a-aab6edfae241/sources/0/.3.90cfae11-0435-4ee2-9c90-909934ab5e3f.tmp
+26/02/19 17:47:18 INFO CheckpointFileManager: Renamed temp file file:/C:/Users/AbdulSuleman/AppData/Local/Temp/temporary-0f136b2f-af18-4fea-878a-aab6edfae241/sources/0/.3.90cfae11-0435-4ee2-9c90-909934ab5e3f.tmp to file:/C:/Users/AbdulSuleman/AppData/Local/Temp/temporary-0f136b2f-af18-4fea-878a-aab6edfae241/sources/0/3
+26/02/19 17:47:18 INFO FileStreamSource: Log offset set to 3 with 1 new files
+26/02/19 17:47:18 INFO CheckpointFileManager: Writing atomically to file:/C:/Users/AbdulSuleman/AppData/Local/Temp/temporary-0f136b2f-af18-4fea-878a-aab6edfae241/offsets/3 using temp file file:/C:/Users/AbdulSuleman/AppData/Local/Temp/temporary-0f136b2f-af18-4fea-878a-aab6edfae241/offsets/.3.4049d544-6367-440e-b155-239dc3ab0d9c.tmp
+26/02/19 17:47:18 INFO CheckpointFileManager: Renamed temp file file:/C:/Users/AbdulSuleman/AppData/Local/Temp/temporary-0f136b2f-af18-4fea-878a-aab6edfae241/offsets/.3.4049d544-6367-440e-b155-239dc3ab0d9c.tmp to file:/C:/Users/AbdulSuleman/AppData/Local/Temp/temporary-0f136b2f-af18-4fea-878a-aab6edfae241/offsets/3
+26/02/19 17:47:18 INFO MicroBatchExecution: Committed offsets for batch 3. Metadata OffsetSeqMetadata(0,1771523238071,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.HDFSBackedStateStoreProvider, spark.sql.streaming.stateStore.rocksdb.formatVersion -> 5, spark.sql.streaming.stateStore.encodingFormat -> unsaferow, spark.sql.streaming.statefulOperator.useStrictDistribution -> true, spark.sql.streaming.flatMapGroupsWithState.stateFormatVersion -> 2, spark.sql.streaming.multipleWatermarkPolicy -> min, spark.sql.streaming.aggregation.stateFormatVersion -> 2, spark.sql.shuffle.partitions -> 200, spark.sql.streaming.join.stateFormatVersion -> 2, spark.sql.streaming.stateStore.compression.codec -> lz4, spark.sql.optimizer.pruneFiltersCanPruneStreamingSubplan -> false))
+26/02/19 17:47:18 INFO FileStreamSource: Processing 1 files from 3:3
+26/02/19 17:47:18 INFO InMemoryFileIndex: It took 1 ms to list leaf files for 1 paths.
+26/02/19 17:47:18 INFO FileSourceStrategy: Pushed Filters: IsNotNull(user_id)
+26/02/19 17:47:18 INFO FileSourceStrategy: Post-Scan Filters: Set(isnotnull(user_id#170))
+26/02/19 17:47:18 INFO FileSourceStrategy: Pushed Filters: IsNotNull(user_id)
+26/02/19 17:47:18 INFO FileSourceStrategy: Post-Scan Filters: Set(isnotnull(user_id#170))
+26/02/19 17:47:18 INFO MemoryStore: Block broadcast_6 stored as values in memory (estimated size 215.9 KiB, free 433.4 MiB)
+26/02/19 17:47:18 INFO MemoryStore: Block broadcast_6_piece0 stored as bytes in memory (estimated size 39.3 KiB, free 433.4 MiB)
+26/02/19 17:47:18 INFO SparkContext: Created broadcast 6 from start at DirectMethodHandleAccessor.java:103
+26/02/19 17:47:18 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+26/02/19 17:47:21 INFO SparkContext: Starting job: start at DirectMethodHandleAccessor.java:103
+26/02/19 17:47:21 INFO DAGScheduler: Got job 3 (start at DirectMethodHandleAccessor.java:103) with 1 output partitions
+26/02/19 17:47:21 INFO DAGScheduler: Final stage: ResultStage 3 (start at DirectMethodHandleAccessor.java:103)
+26/02/19 17:47:21 INFO DAGScheduler: Parents of final stage: List()
+26/02/19 17:47:21 INFO DAGScheduler: Missing parents: List()
+26/02/19 17:47:21 INFO DAGScheduler: Missing parents found for ResultStage 3: List()
+26/02/19 17:47:21 INFO DAGScheduler: Submitting ResultStage 3 (MapPartitionsRDD[31] at start at DirectMethodHandleAccessor.java:103), which has no missing parents
+26/02/19 17:47:21 INFO MemoryStore: Block broadcast_7 stored as values in memory (estimated size 36.4 KiB, free 433.4 MiB)
+26/02/19 17:47:21 INFO MemoryStore: Block broadcast_7_piece0 stored as bytes in memory (estimated size 15.9 KiB, free 433.4 MiB)
+26/02/19 17:47:21 INFO SparkContext: Created broadcast 7 from broadcast at DAGScheduler.scala:1686
+26/02/19 17:47:21 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 3 (MapPartitionsRDD[31] at start at DirectMethodHandleAccessor.java:103) (first 15 tasks are for partitions Vector(0))
+26/02/19 17:47:21 INFO TaskSchedulerImpl: Adding task set 3.0 with 1 tasks resource profile 0
+26/02/19 17:47:21 INFO TaskSetManager: Starting task 0.0 in stage 3.0 (TID 3) (DESKTOP-QFS7I0I,executor driver, partition 0, PROCESS_LOCAL, 10539 bytes)
+26/02/19 17:47:21 INFO Executor: Running task 0.0 in stage 3.0 (TID 3)
+26/02/19 17:47:21 INFO FileScanRDD: Reading File path: file:///C:/Users/AbdulSuleman/Desktop/Data%20Engineering%20Upskill%20Projects/real-time-data-ingestion-using-spark/src/streaming_data/events_1771523237.csv, range: 0-2024, partition values: [empty row]
+26/02/19 17:47:29 INFO Executor: Finished task 0.0 in stage 3.0 (TID 3). 1536 bytes result sent to driver
+26/02/19 17:47:29 INFO TaskSetManager: Finished task 0.0 in stage 3.0 (TID 3) in 8161 ms on DESKTOP-QFS7I0I (executor driver) (1/1)
+26/02/19 17:47:29 INFO TaskSchedulerImpl: Removed TaskSet 3.0 whose tasks have all completed, from pool
+26/02/19 17:47:29 INFO DAGScheduler: ResultStage 3 (start at DirectMethodHandleAccessor.java:103) finished in 8177 ms
+26/02/19 17:47:29 INFO DAGScheduler: Job 3 is finished. Cancelling potential speculative or zombie tasks for this job
+26/02/19 17:47:29 INFO TaskSchedulerImpl: Canceling stage 3
+26/02/19 17:47:29 INFO TaskSchedulerImpl: Killing all running tasks in stage 3: Stage finished
+26/02/19 17:47:29 INFO DAGScheduler: Job 3 finished: start at DirectMethodHandleAccessor.java:103, took 8180.6834 ms
+26/02/19 17:47:31 INFO JDBCRDD: Generated JDBC query to get scan output schema: SELECT * FROM events WHERE 1=0
+26/02/19 17:47:31 INFO CheckpointFileManager: Writing atomically to file:/C:/Users/AbdulSuleman/AppData/Local/Temp/temporary-0f136b2f-af18-4fea-878a-aab6edfae241/commits/3 using temp file file:/C:/Users/AbdulSuleman/AppData/Local/Temp/temporary-0f136b2f-af18-4fea-878a-aab6edfae241/commits/.3.dd0b518c-b5c0-4ab3-959b-e95fe637988f.tmp
+26/02/19 17:47:32 INFO CheckpointFileManager: Renamed temp file file:/C:/Users/AbdulSuleman/AppData/Local/Temp/temporary-0f136b2f-af18-4fea-878a-aab6edfae241/commits/.3.dd0b518c-b5c0-4ab3-959b-e95fe637988f.tmp to file:/C:/Users/AbdulSuleman/AppData/Local/Temp/temporary-0f136b2f-af18-4fea-878a-aab6edfae241/commits/3
+26/02/19 17:47:32 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:32 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:32 INFO ProgressReporter: Streaming query made progress: {
+  "id" : "1735f1bf-8bc4-4330-b3fa-24f7a2470e99",
+  "runId" : "8d23e684-b945-4af4-9fd7-d8a163bb4068",
+  "name" : null,
+  "timestamp" : "2026-02-19T17:47:17.694Z",
+  "batchId" : 3,
+  "batchDuration" : 14447,
+  "numInputRows" : 21,
+  "inputRowsPerSecond" : 677.4,
+  "processedRowsPerSecond" : 1.5,
+  "durationMs" : {
+    "addBatch" : 13293,
+    "commitOffsets" : 369,
+    "getBatch" : 13,
+    "latestOffset" : 377,
+    "queryPlanning" : 27,
+    "triggerExecution" : 14447,
+    "walCommit" : 364
+  },
+  "stateOperators" : [ ],
+  "sources" : [ {
+    "description" : "FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data]",
+    "startOffset" : {
+      "logOffset" : 2
+    },
+    "endOffset" : {
+      "logOffset" : 3
+    },
+    "latestOffset" : null,
+    "numInputRows" : 21,
+    "inputRowsPerSecond" : 677.4,
+    "processedRowsPerSecond" : 1.5
+  } ],
+  "sink" : {
+    "description" : "ForeachBatchSink",
+    "numOutputRows" : -1
+  }
+}
+26/02/19 17:47:32 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:32 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:32 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:32 INFO InMemoryFileIndex: It took 5 ms to list leaf files for 1 paths.
+26/02/19 17:47:32 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:32 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:32 INFO InMemoryFileIndex: It took 3 ms to list leaf files for 1 paths.
+26/02/19 17:47:32 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:32 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:32 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:32 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:32 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:32 INFO InMemoryFileIndex: It took 5 ms to list leaf files for 1 paths.
+26/02/19 17:47:32 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:32 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:32 INFO InMemoryFileIndex: It took 3 ms to list leaf files for 1 paths.
+26/02/19 17:47:32 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:32 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:32 INFO InMemoryFileIndex: It took 3 ms to list leaf files for 1 paths.
+26/02/19 17:47:32 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:32 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:32 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:32 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:32 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:32 INFO InMemoryFileIndex: It took 5 ms to list leaf files for 1 paths.
+26/02/19 17:47:32 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:32 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:32 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:32 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:32 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:32 INFO InMemoryFileIndex: It took 5 ms to list leaf files for 1 paths.
+26/02/19 17:47:32 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:32 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:32 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:32 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:32 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:32 INFO InMemoryFileIndex: It took 5 ms to list leaf files for 1 paths.
+26/02/19 17:47:32 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:32 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:32 INFO InMemoryFileIndex: It took 3 ms to list leaf files for 1 paths.
+26/02/19 17:47:32 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:32 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:32 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:32 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:32 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:32 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:32 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:32 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:32 INFO InMemoryFileIndex: It took 3 ms to list leaf files for 1 paths.
+26/02/19 17:47:32 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:32 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:32 INFO InMemoryFileIndex: It took 3 ms to list leaf files for 1 paths.
+26/02/19 17:47:32 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:32 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:32 INFO InMemoryFileIndex: It took 5 ms to list leaf files for 1 paths.
+26/02/19 17:47:32 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:32 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:32 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:32 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:32 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:32 INFO InMemoryFileIndex: It took 3 ms to list leaf files for 1 paths.
+26/02/19 17:47:32 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:32 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:32 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:32 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:32 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:32 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:32 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:32 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:32 INFO InMemoryFileIndex: It took 5 ms to list leaf files for 1 paths.
+26/02/19 17:47:32 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:32 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:32 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:32 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:32 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:32 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:32 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:32 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:32 INFO InMemoryFileIndex: It took 8 ms to list leaf files for 1 paths.
+26/02/19 17:47:32 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:32 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:33 INFO InMemoryFileIndex: It took 3 ms to list leaf files for 1 paths.
+26/02/19 17:47:33 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:33 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:33 INFO InMemoryFileIndex: It took 5 ms to list leaf files for 1 paths.
+26/02/19 17:47:33 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:33 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:33 INFO InMemoryFileIndex: It took 8 ms to list leaf files for 1 paths.
+26/02/19 17:47:33 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:33 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:33 INFO InMemoryFileIndex: It took 9 ms to list leaf files for 1 paths.
+26/02/19 17:47:33 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:33 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:33 INFO InMemoryFileIndex: It took 19 ms to list leaf files for 1 paths.
+26/02/19 17:47:33 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:33 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:33 INFO InMemoryFileIndex: It took 7 ms to list leaf files for 1 paths.
+26/02/19 17:47:33 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:33 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:33 INFO InMemoryFileIndex: It took 8 ms to list leaf files for 1 paths.
+26/02/19 17:47:33 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:33 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:33 INFO InMemoryFileIndex: It took 7 ms to list leaf files for 1 paths.
+26/02/19 17:47:33 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:33 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:33 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:33 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:33 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:33 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:33 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:33 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:33 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:33 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:33 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:33 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:33 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:33 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:33 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:33 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:33 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:33 INFO InMemoryFileIndex: It took 3 ms to list leaf files for 1 paths.
+26/02/19 17:47:33 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:33 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:33 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:33 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:33 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:33 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:33 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:33 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:33 INFO InMemoryFileIndex: It took 5 ms to list leaf files for 1 paths.
+26/02/19 17:47:33 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:33 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:33 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:33 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:33 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:33 INFO InMemoryFileIndex: It took 3 ms to list leaf files for 1 paths.
+26/02/19 17:47:33 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:33 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:33 INFO InMemoryFileIndex: It took 3 ms to list leaf files for 1 paths.
+26/02/19 17:47:33 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:33 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:33 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:33 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:33 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:33 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:33 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:33 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:33 INFO InMemoryFileIndex: It took 5 ms to list leaf files for 1 paths.
+26/02/19 17:47:33 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:33 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:33 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:33 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:33 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:33 INFO InMemoryFileIndex: It took 5 ms to list leaf files for 1 paths.
+26/02/19 17:47:33 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:33 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:33 INFO InMemoryFileIndex: It took 5 ms to list leaf files for 1 paths.
+26/02/19 17:47:33 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:33 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:33 INFO InMemoryFileIndex: It took 6 ms to list leaf files for 1 paths.
+26/02/19 17:47:33 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:33 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:33 INFO InMemoryFileIndex: It took 8 ms to list leaf files for 1 paths.
+26/02/19 17:47:33 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:33 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:33 INFO InMemoryFileIndex: It took 6 ms to list leaf files for 1 paths.
+26/02/19 17:47:33 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:33 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:33 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:33 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:33 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:33 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:33 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:33 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:33 INFO InMemoryFileIndex: It took 3 ms to list leaf files for 1 paths.
+26/02/19 17:47:33 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:33 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:34 INFO InMemoryFileIndex: It took 3 ms to list leaf files for 1 paths.
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:34 INFO InMemoryFileIndex: It took 5 ms to list leaf files for 1 paths.
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:34 INFO InMemoryFileIndex: It took 5 ms to list leaf files for 1 paths.
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:34 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:34 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:34 INFO InMemoryFileIndex: It took 5 ms to list leaf files for 1 paths.
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:34 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:34 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:34 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:34 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:34 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:34 INFO InMemoryFileIndex: It took 5 ms to list leaf files for 1 paths.
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:34 INFO InMemoryFileIndex: It took 6 ms to list leaf files for 1 paths.
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:34 INFO InMemoryFileIndex: It took 13 ms to list leaf files for 1 paths.
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:34 INFO InMemoryFileIndex: It took 5 ms to list leaf files for 1 paths.
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:34 INFO InMemoryFileIndex: It took 3 ms to list leaf files for 1 paths.
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:34 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:34 INFO InMemoryFileIndex: It took 3 ms to list leaf files for 1 paths.
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:34 INFO InMemoryFileIndex: It took 5 ms to list leaf files for 1 paths.
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:34 INFO InMemoryFileIndex: It took 5 ms to list leaf files for 1 paths.
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:34 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:34 INFO InMemoryFileIndex: It took 6 ms to list leaf files for 1 paths.
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:34 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:34 INFO InMemoryFileIndex: It took 3 ms to list leaf files for 1 paths.
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:34 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:34 INFO InMemoryFileIndex: It took 3 ms to list leaf files for 1 paths.
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:34 INFO InMemoryFileIndex: It took 5 ms to list leaf files for 1 paths.
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:34 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:34 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:34 INFO InMemoryFileIndex: It took 3 ms to list leaf files for 1 paths.
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:34 INFO InMemoryFileIndex: It took 5 ms to list leaf files for 1 paths.
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:34 INFO InMemoryFileIndex: It took 3 ms to list leaf files for 1 paths.
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:34 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:34 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:35 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:35 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:35 INFO InMemoryFileIndex: It took 5 ms to list leaf files for 1 paths.
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:35 INFO InMemoryFileIndex: It took 6 ms to list leaf files for 1 paths.
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:35 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:35 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:35 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:35 INFO InMemoryFileIndex: It took 7 ms to list leaf files for 1 paths.
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:35 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:35 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:35 INFO InMemoryFileIndex: It took 7 ms to list leaf files for 1 paths.
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:35 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:35 INFO InMemoryFileIndex: It took 5 ms to list leaf files for 1 paths.
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:35 INFO InMemoryFileIndex: It took 11 ms to list leaf files for 1 paths.
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:35 INFO InMemoryFileIndex: It took 5 ms to list leaf files for 1 paths.
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:35 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:35 INFO InMemoryFileIndex: It took 3 ms to list leaf files for 1 paths.
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:35 INFO InMemoryFileIndex: It took 5 ms to list leaf files for 1 paths.
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:35 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:35 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:35 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:35 INFO InMemoryFileIndex: It took 3 ms to list leaf files for 1 paths.
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:35 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:35 INFO InMemoryFileIndex: It took 3 ms to list leaf files for 1 paths.
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:35 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:35 INFO InMemoryFileIndex: It took 5 ms to list leaf files for 1 paths.
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:35 INFO InMemoryFileIndex: It took 6 ms to list leaf files for 1 paths.
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:35 INFO InMemoryFileIndex: It took 9 ms to list leaf files for 1 paths.
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:35 INFO InMemoryFileIndex: It took 6 ms to list leaf files for 1 paths.
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:35 INFO InMemoryFileIndex: It took 5 ms to list leaf files for 1 paths.
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:35 INFO InMemoryFileIndex: It took 5 ms to list leaf files for 1 paths.
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:35 INFO InMemoryFileIndex: It took 6 ms to list leaf files for 1 paths.
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:35 INFO InMemoryFileIndex: It took 10 ms to list leaf files for 1 paths.
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:35 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:36 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:36 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:36 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:36 INFO InMemoryFileIndex: It took 5 ms to list leaf files for 1 paths.
+26/02/19 17:47:36 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:36 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:36 INFO InMemoryFileIndex: It took 7 ms to list leaf files for 1 paths.
+26/02/19 17:47:36 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:36 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:36 INFO InMemoryFileIndex: It took 5 ms to list leaf files for 1 paths.
+26/02/19 17:47:36 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:36 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:36 INFO InMemoryFileIndex: It took 3 ms to list leaf files for 1 paths.
+26/02/19 17:47:36 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:36 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:36 INFO InMemoryFileIndex: It took 3 ms to list leaf files for 1 paths.
+26/02/19 17:47:36 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:36 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:36 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:36 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:36 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:36 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:36 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:36 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:36 INFO InMemoryFileIndex: It took 6 ms to list leaf files for 1 paths.
+26/02/19 17:47:36 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:36 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:36 INFO InMemoryFileIndex: It took 8 ms to list leaf files for 1 paths.
+26/02/19 17:47:36 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:36 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:36 INFO InMemoryFileIndex: It took 10 ms to list leaf files for 1 paths.
+26/02/19 17:47:36 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:36 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:36 INFO InMemoryFileIndex: It took 6 ms to list leaf files for 1 paths.
+26/02/19 17:47:36 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:36 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:36 INFO InMemoryFileIndex: It took 5 ms to list leaf files for 1 paths.
+26/02/19 17:47:36 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:36 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:36 INFO InMemoryFileIndex: It took 6 ms to list leaf files for 1 paths.
+26/02/19 17:47:36 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:36 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:36 INFO InMemoryFileIndex: It took 5 ms to list leaf files for 1 paths.
+26/02/19 17:47:36 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:36 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:36 INFO InMemoryFileIndex: It took 6 ms to list leaf files for 1 paths.
+26/02/19 17:47:36 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:36 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:36 INFO InMemoryFileIndex: It took 6 ms to list leaf files for 1 paths.
+26/02/19 17:47:36 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:36 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:36 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:36 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:36 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:36 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:36 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:36 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:36 INFO InMemoryFileIndex: It took 12 ms to list leaf files for 1 paths.
+26/02/19 17:47:36 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:36 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:36 INFO InMemoryFileIndex: It took 7 ms to list leaf files for 1 paths.
+26/02/19 17:47:36 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:36 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:36 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:36 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:36 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:36 INFO InMemoryFileIndex: It took 5 ms to list leaf files for 1 paths.
+26/02/19 17:47:36 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:36 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:36 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:36 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:36 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:36 INFO InMemoryFileIndex: It took 7 ms to list leaf files for 1 paths.
+26/02/19 17:47:36 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:36 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:36 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:36 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:36 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:36 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:36 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:36 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:36 INFO InMemoryFileIndex: It took 6 ms to list leaf files for 1 paths.
+26/02/19 17:47:36 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:36 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:36 INFO InMemoryFileIndex: It took 8 ms to list leaf files for 1 paths.
+26/02/19 17:47:36 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:36 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:36 INFO InMemoryFileIndex: It took 6 ms to list leaf files for 1 paths.
+26/02/19 17:47:36 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:36 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:36 INFO InMemoryFileIndex: It took 6 ms to list leaf files for 1 paths.
+26/02/19 17:47:36 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:36 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:36 INFO InMemoryFileIndex: It took 6 ms to list leaf files for 1 paths.
+26/02/19 17:47:36 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:36 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:37 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:37 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:37 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:37 INFO InMemoryFileIndex: It took 5 ms to list leaf files for 1 paths.
+26/02/19 17:47:37 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:37 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:37 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:37 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:37 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:37 INFO InMemoryFileIndex: It took 3 ms to list leaf files for 1 paths.
+26/02/19 17:47:37 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:37 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:37 INFO InMemoryFileIndex: It took 3 ms to list leaf files for 1 paths.
+26/02/19 17:47:37 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:37 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:37 INFO InMemoryFileIndex: It took 7 ms to list leaf files for 1 paths.
+26/02/19 17:47:37 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:37 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:37 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:37 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:37 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:37 INFO InMemoryFileIndex: It took 3 ms to list leaf files for 1 paths.
+26/02/19 17:47:37 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:37 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:37 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:37 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:37 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:37 INFO InMemoryFileIndex: It took 6 ms to list leaf files for 1 paths.
+26/02/19 17:47:37 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:37 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:37 INFO InMemoryFileIndex: It took 5 ms to list leaf files for 1 paths.
+26/02/19 17:47:37 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:37 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:37 INFO InMemoryFileIndex: It took 5 ms to list leaf files for 1 paths.
+26/02/19 17:47:37 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:37 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:37 INFO InMemoryFileIndex: It took 9 ms to list leaf files for 1 paths.
+26/02/19 17:47:37 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:37 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:37 INFO InMemoryFileIndex: It took 7 ms to list leaf files for 1 paths.
+26/02/19 17:47:37 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:37 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:37 INFO InMemoryFileIndex: It took 3 ms to list leaf files for 1 paths.
+26/02/19 17:47:37 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:37 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:37 INFO InMemoryFileIndex: It took 6 ms to list leaf files for 1 paths.
+26/02/19 17:47:37 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:37 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:37 INFO InMemoryFileIndex: It took 6 ms to list leaf files for 1 paths.
+26/02/19 17:47:37 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:37 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:37 INFO InMemoryFileIndex: It took 6 ms to list leaf files for 1 paths.
+26/02/19 17:47:37 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:37 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:37 INFO InMemoryFileIndex: It took 5 ms to list leaf files for 1 paths.
+26/02/19 17:47:37 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:37 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:37 INFO InMemoryFileIndex: It took 5 ms to list leaf files for 1 paths.
+26/02/19 17:47:37 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:37 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:37 INFO InMemoryFileIndex: It took 7 ms to list leaf files for 1 paths.
+26/02/19 17:47:37 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:37 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:37 INFO InMemoryFileIndex: It took 9 ms to list leaf files for 1 paths.
+26/02/19 17:47:37 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:37 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:37 INFO InMemoryFileIndex: It took 7 ms to list leaf files for 1 paths.
+26/02/19 17:47:37 INFO MicroBatchExecutionContext: Extracting source progress metrics for source=FileStreamSource[file:/C:/Users/AbdulSuleman/Desktop/Data Engineering Upskill Projects/real-time-data-ingestion-using-spark/src/streaming_data] took duration_ms=0
+26/02/19 17:47:37 INFO MicroBatchExecutionContext: Extracting sink progress metrics for sink=ForeachBatchSink took duration_ms=0
+26/02/19 17:47:37 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+26/02/19 17:47:37 INFO CheckpointFileManager: Writing atomically to file:/C:/Users/AbdulSuleman/AppData/Local/Temp/temporary-0f136b2f-af18-4fea-878a-aab6edfae241/sources/0/4 using temp file file:/C:/Users/AbdulSuleman/AppData/Local/Temp/temporary-0f136b2f-af18-4fea-878a-aab6edfae241/sources/0/.4.87988693-ae23-45ac-a999-3b444cb24876.tmp
+26/02/19 17:47:38 INFO CheckpointFileManager: Renamed temp file file:/C:/Users/AbdulSuleman/AppData/Local/Temp/temporary-0f136b2f-af18-4fea-878a-aab6edfae241/sources/0/.4.87988693-ae23-45ac-a999-3b444cb24876.tmp to file:/C:/Users/AbdulSuleman/AppData/Local/Temp/temporary-0f136b2f-af18-4fea-878a-aab6edfae241/sources/0/4
+26/02/19 17:47:38 INFO FileStreamSource: Log offset set to 4 with 1 new files
+26/02/19 17:47:38 INFO CheckpointFileManager: Writing atomically to file:/C:/Users/AbdulSuleman/AppData/Local/Temp/temporary-0f136b2f-af18-4fea-878a-aab6edfae241/offsets/4 using temp file file:/C:/Users/AbdulSuleman/AppData/Local/Temp/temporary-0f136b2f-af18-4fea-878a-aab6edfae241/offsets/.4.b87ee1e2-bd84-48f6-8311-80d5bc61bf28.tmp
+26/02/19 17:47:38 INFO CheckpointFileManager: Renamed temp file file:/C:/Users/AbdulSuleman/AppData/Local/Temp/temporary-0f136b2f-af18-4fea-878a-aab6edfae241/offsets/.4.b87ee1e2-bd84-48f6-8311-80d5bc61bf28.tmp to file:/C:/Users/AbdulSuleman/AppData/Local/Temp/temporary-0f136b2f-af18-4fea-878a-aab6edfae241/offsets/4
+26/02/19 17:47:38 INFO MicroBatchExecution: Committed offsets for batch 4. Metadata OffsetSeqMetadata(0,1771523258087,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.HDFSBackedStateStoreProvider, spark.sql.streaming.stateStore.rocksdb.formatVersion -> 5, spark.sql.streaming.stateStore.encodingFormat -> unsaferow, spark.sql.streaming.statefulOperator.useStrictDistribution -> true, spark.sql.streaming.flatMapGroupsWithState.stateFormatVersion -> 2, spark.sql.streaming.multipleWatermarkPolicy -> min, spark.sql.streaming.aggregation.stateFormatVersion -> 2, spark.sql.shuffle.partitions -> 200, spark.sql.streaming.join.stateFormatVersion -> 2, spark.sql.streaming.stateStore.compression.codec -> lz4, spark.sql.optimizer.pruneFiltersCanPruneStreamingSubplan -> false))
+26/02/19 17:47:38 INFO FileStreamSource: Processing 1 files from 4:4
+26/02/19 17:47:38 INFO InMemoryFileIndex: It took 1 ms to list leaf files for 1 paths.
+26/02/19 17:47:38 INFO FileSourceStrategy: Pushed Filters: IsNotNull(user_id)
+26/02/19 17:47:38 INFO FileSourceStrategy: Post-Scan Filters: Set(isnotnull(user_id#221))
+26/02/19 17:47:38 INFO FileSourceStrategy: Pushed Filters: IsNotNull(user_id)
+26/02/19 17:47:38 INFO FileSourceStrategy: Post-Scan Filters: Set(isnotnull(user_id#221))
+26/02/19 17:47:38 INFO MemoryStore: Block broadcast_8 stored as values in memory (estimated size 215.9 KiB, free 433.2 MiB)
+26/02/19 17:47:38 INFO MemoryStore: Block broadcast_8_piece0 stored as bytes in memory (estimated size 39.3 KiB, free 433.2 MiB)
+26/02/19 17:47:38 INFO SparkContext: Created broadcast 8 from start at DirectMethodHandleAccessor.java:103
+26/02/19 17:47:38 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
